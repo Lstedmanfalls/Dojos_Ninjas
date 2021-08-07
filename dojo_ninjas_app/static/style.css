@@ -1,0 +1,104 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    background-color: #A63D40;
+}
+
+html{
+    font-size:10px;
+}
+
+#wrapper{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+#add{
+    display:flex;
+    justify-content: space-between;
+    padding: 3rem;
+    width:50%;
+}
+
+.add{
+    background-color: #E9B872;
+    padding:2rem 4rem;
+    width:40%;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+h1{
+    font-size:4rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+label{
+    font-size:3rem;
+}
+
+input, select, button{
+    padding:.5rem;
+    margin:1rem 0;
+}
+
+input, select{
+    font-size:2rem;
+}
+
+button{
+    width:50%;
+    align-self:center;
+    font-size:2.5rem;
+    background-color:#90A959;
+}
+
+button:hover{
+    background-color: #6494AA;
+    cursor: pointer;
+}
+
+#list{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:#6494AA;
+    padding-bottom: 3rem;
+    width: 100%;
+}
+
+#list h1{
+    padding:2rem;
+}
+
+ul{
+    list-style-type: none;
+    font-size:3rem;
+}
+
+#list > ul{
+    display: flex;
+}
+
+li ul{
+    margin-left:2rem;
+    font-size:2rem;
+}
+
+li{
+    padding:.5rem 2rem;
+    background-color: #E9B872;
+    margin:1rem 1rem;
+}
+
+#city_state{
+    font-size:1.5rem;
+}

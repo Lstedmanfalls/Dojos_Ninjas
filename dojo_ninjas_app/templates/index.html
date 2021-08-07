@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and Ninjas App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="add">
+            <div class="add">
+                <h1>Add a Dojo</h1>
+                <form action="new_dojo" method="POST">
+                    {% csrf_token %}
+                    <label for="dojo_name">Name</label>
+                    <input name="dojo_name" type="text" required>
+                    <label for="city">City</label>
+                    <input name="city" type="text" required>
+                    <label for ="state">State</label>
+                    <input name = "state" type="text">
+                    <button type="submit">Add Dojo</button>
+                </form>
+            </div>
+            <div class="add">
+                <h1>Add a Ninja</h1>
+                <form action="new_ninja" method="POST">
+                    {% csrf_token %}
+                    <label for="ninja_first_name">First Name</label>
+                    <input name="ninja_first_name" type="text" required>
+                    <label for="ninja_last_name">Last Name</label>
+                    <input name="ninja_last_name" type="text" required>
+                    <label for ="dojo">Dojo</label>
+                    <select name = "dojo">
+                        {% for dojo in all_the_dojos %}
+                        <option value="{{dojo.id}}">{{dojo.name}}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Add Ninja</button>
+                </form>
+            </div>
+        </div>
+        <div id="list">
+            <h1>Current Dojos and Ninjas</h1>
+            <ul>
+                {% for dojo in all_the_dojos %}
+                <li>{{dojo.name}} <span id ="city_state">({{dojo.city}}, {{dojo.state}})</span>
+                    <ul>
+                        {% for dojo_ninja in dojo.ninjas.all %}
+                        <li>{{dojo_ninja.first_name}} {{dojo_ninja.last_name}}
+                        {% endfor %}
+                        </li>
+                    </ul>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
